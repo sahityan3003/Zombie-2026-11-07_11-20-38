@@ -23,9 +23,11 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
-        
+        currentAmmo = magSize;
+        initalRotation = transform.localRotation;
+        initialPosition = transform.localPosition;
     }
-
+    
   
         
     

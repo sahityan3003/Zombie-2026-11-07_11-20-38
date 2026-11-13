@@ -74,6 +74,17 @@ public class Gun : MonoBehaviour
         isReloading = false;
     }
     
+    public void TryReload()
+    {
+        if (isReloading)
+            return;
+
+        if (currentAmmo == magSize)
+            return;
+
+
+        StartCoroutine(Reload());
+    }
  
 
 

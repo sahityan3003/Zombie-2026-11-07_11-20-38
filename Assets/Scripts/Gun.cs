@@ -27,8 +27,18 @@ public class Gun : MonoBehaviour
         initalRotation = transform.localRotation;
         initialPosition = transform.localPosition;
     }
-    
-  
-        
-    
+    public void shoot()
+    {
+        if (isReloading) return;
+        if (Time.time < nextTimeToFire) return;
+
+        if(currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+    }
+
+
+
 }

@@ -1,16 +1,33 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerShooting : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public Gun gun;
+    private bool isHoldingShoot = false;
+
+    void OnShoot()
     {
-        
+        isHoldingShoot = true;
     }
 
-    // Update is called once per frame
+    void OnShootRelease()
+    {
+        isHoldingShoot = false;
+    }
+
+    void OnReload()
+    {
+        if (gun != null)
+        {
+            gun.TryReload();
+        }
+    }
     void Update()
     {
-        
+        if(isHoldingShoot && gun != null)
+        {
+            gun.shoot();
+        }
     }
 }

@@ -32,13 +32,19 @@ public class Gun : MonoBehaviour
         if (isReloading) return;
         if (Time.time < nextTimeToFire) return;
 
-        if(currentAmmo <= 0)
+        if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
-    }
 
+        nextTimeToFire = Time.time + fireRate;
+        currentAmmo--;
+
+        Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation)
+    }
+    
+ 
 
 
 }

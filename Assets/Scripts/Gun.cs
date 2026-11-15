@@ -92,6 +92,28 @@ public class Gun : MonoBehaviour
     private IEnumerator Recoil()
     {
         Vector3 recoilTarget = initialPosition + new Vector3(-recoilDistance,0,0);
+        float t = 0f;
+
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            transform.localPosition = Vector3.Lerp(initialPosition, recoilTarget, t );
+            yield return null;
+
+        }
+
+        t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            transform.localPosition = Vector3.Lerp(recoilTarget, initialPosition, t);
+            yield return null;
+
+        }
+
+        transform.localPosition = initialPosition;
     }
 
 }

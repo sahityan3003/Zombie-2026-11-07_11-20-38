@@ -45,6 +45,9 @@ public class Gun : MonoBehaviour
         currentAmmo--;
 
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+        StopCoroutine(nameof(Recoil));
+        StartCoroutine(nameof(Recoil));
     }
 
     IEnumerator Reload()

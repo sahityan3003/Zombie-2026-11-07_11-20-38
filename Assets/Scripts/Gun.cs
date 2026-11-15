@@ -11,6 +11,8 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public Transform bulletSpawnPoint;
 
+    public GameObject weaponFlash;
+
 
     public float recoilDistance = 0.1f;
     public float recoilSpeed = 15f;
@@ -45,6 +47,7 @@ public class Gun : MonoBehaviour
         currentAmmo--;
 
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Instantiate(weaponFlash, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
         StopCoroutine(nameof(Recoil));
         StartCoroutine(nameof(Recoil));

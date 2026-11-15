@@ -103,7 +103,7 @@ public class Gun : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime * recoilSpeed;
             transform.localPosition = Vector3.Lerp(initialPosition, recoilTarget, t );
             yield return null;
 
@@ -113,7 +113,7 @@ public class Gun : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime * recoilSpeed;
             transform.localPosition = Vector3.Lerp(recoilTarget, initialPosition, t);
             yield return null;
 

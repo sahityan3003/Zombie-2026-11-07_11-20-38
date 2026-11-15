@@ -12,6 +12,9 @@ public class Gun : MonoBehaviour
     public Transform bulletSpawnPoint;
 
 
+    public float recoilDistance = 0.1f;
+    public float recoilSpeed = 15f;
+
     private int currentAmmo;
     private bool isReloading = false;
     private float nextTimeToFire = 0f;
@@ -86,6 +89,9 @@ public class Gun : MonoBehaviour
         StartCoroutine(Reload());
     }
  
-
+    private IEnumerator Recoil()
+    {
+        Vector3 recoilTarget = initialPosition + new Vector3(-recoilDistance,0,0);
+    }
 
 }

@@ -97,7 +97,7 @@ public class Gun : MonoBehaviour
  
     private IEnumerator Recoil()
     {
-        Vector3 recoilTarget = initialPosition + new Vector3(-recoilDistance,0,0);
+        Vector3 recoilTarget = initialPosition + new Vector3(recoilDistance,0,0);
         float t = 0f;
 
 
